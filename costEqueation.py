@@ -30,7 +30,7 @@ def Vtyp(cat):
         return switcher.get(cat)
 
 def typ():
-    return (input("Enter " +category[cat] + " type, " + Vtyp(cat)[0] + " or "+ Vtyp(cat)[1] +" ? ")).lower()
+    return (input('\n'*1 +"Enter " +category[cat] + " type, " + Vtyp(cat)[0] + " or "+ Vtyp(cat)[1] +" ? ")).lower()
 
 def validator(v):
     return not((v == Vtyp(cat)[0].lower()) or (v == Vtyp(cat)[1].lower()))
@@ -38,7 +38,7 @@ def validator(v):
 
 def maintananceCost(vt):
     while True:
-        num = input("Enter maintance cost of "+vt+" per 1 kilometer >> ")
+        num = input('\n'*1 +"Enter maintance cost of "+vt+" per 1 kilometer >> ")
         try:
             val = int(num)
             return val
@@ -48,16 +48,18 @@ def maintananceCost(vt):
 
 def totalCost(vt,mtCost):
     x = math.ceil(float(costDictionary[vt]+mtCost))
-    print ("Total approximate cost of 1km for "+vt+" type of "+category[cat]+" is "+str(x))
+    print ('\n'*1 + "Great! your total approximate cost of 1km for "+vt+" type of "+category[cat]+" is Rs: "+str(x))
 
+def vCategory():
+    return Vcat(category = (input('\n'*1 +"Enter vehicle category >>  ")).lower())
     
 #---------------------------------------------------------------------------------    
 #GamePlay starts from here
 #---------------------------------------------------------------------------------
-cat = Vcat(category = (input("Enter vehicle category >>  ")).lower())
+cat = vCategory()
 while(cat=="Invalid vehicle category"):
     print(cat)
-    cat = Vcat(category = (input("Enter vehicle category >>  ")).lower())
+    cat = vCategory()
     
 print("You have selected "+category[cat]+" category")
 #---------------------------------------------------------------------------------
